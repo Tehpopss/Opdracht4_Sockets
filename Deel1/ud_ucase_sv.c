@@ -18,6 +18,13 @@
    See also ud_ucase_cl.c.
 */
 #include "ud_ucase.h"
+#include "PJ_RPI.h"
+#include <stdio.h>
+#define BACKLOG 5
+
+#include <string.h>
+#define SV_SOCK_PATH "/tmp/ud_ucase"
+#define BUF_SIZE 10
 
 int
 main(int argc, char *argv[])
@@ -27,6 +34,7 @@ main(int argc, char *argv[])
     ssize_t numBytes;
     socklen_t len;
     char buf[BUF_SIZE];
+    struct bcm2835_peripheral gpio = {GPIO_BASE};
 
     sfd = socket(AF_UNIX, SOCK_DGRAM, 0);       /* Create server socket */
     if (sfd == -1)
@@ -60,11 +68,30 @@ main(int argc, char *argv[])
         if (numBytes == -1)
             errExit("recvfrom");
 
-        printf("Received %d: %d", received_data.IO, received_data.period);
+        printf("Server received %ld bytes from %s\n", (long) numBytes,
+            claddr.sun_path);
         /*FIXME: above: should use %zd here, and remove (long) cast */
 
-        received_data.IO++;
-        received_data.period++;
+        printf("gpio: %d\n",received_data.IO);
+        printf("Period: %d\n",received_data.period);
+
+        for (j = 0; j < numBytes; j++)
+            buf[j] = toupper((unsigned char) buf[j]);
+
+        // Define gpio as output
+        INP_GPIO(received_data.IO);
+        OUT_GPIO(received_data.IO);
+
+        for (int i = 0; i < 10; i++)
+        {
+            // Toggle (blink a led!)
+            GPIO_SET = 1 << received_data.IO;
+            printf("gpio: %d is aan\n",received_data.IO);
+            sleep(received_data.period);
+            GPIO_CLR = 1 << received_data.IO;
+            printf("gpio: %d is uit\n",received_data.IO);
+            sleep(received_data.period);
+        }
         
         if (sendto(sfd, &received_data, sizeof(received_data), 0, (struct sockaddr *) &claddr, len) !=
                 numBytes)

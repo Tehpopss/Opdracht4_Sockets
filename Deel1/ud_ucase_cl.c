@@ -17,6 +17,10 @@
    and then displays the contents of the server's response datagram.
 */
 #include "ud_ucase.h"
+#include <stdio.h>
+
+#define SV_SOCK_PATH "/tmp/ud_ucase"
+#define BUF_SIZE 10
 
 int
 main(int argc, char *argv[])
@@ -27,8 +31,8 @@ main(int argc, char *argv[])
     ssize_t numBytes;
     char resp[BUF_SIZE];
 
-    if (argc < 2 || strcmp(argv[1], "--help") == 0)
-        usageErr("%s msg...\n", argv[0]);
+    /* if (argc < 2 || strcmp(argv[1], "--help") == 0)
+        usageErr("%s msg...\n", argv[0]); */
 
     /* Create client socket; bind to unique pathname (based on PID) */
 
@@ -52,19 +56,30 @@ main(int argc, char *argv[])
 
     /* Send messages to server; echo responses on stdout */
 
-    t_data data={40,100};
-    if (sendto(sfd, &data, sizeof(data), 0, (struct sockaddr *) &svaddr,
-            sizeof(struct sockaddr_un)) != sizeof(data))
-        fatal("sendto");
+        t_data data;
 
-    t_data response;
-    numBytes = recvfrom(sfd, &response, sizeof(response), 0, NULL, NULL);
-    /* Or equivalently: numBytes = recv(sfd, resp, BUF_SIZE, 0);
-                    or: numBytes = read(sfd, resp, BUF_SIZE); */
-    if (numBytes == -1)
-        errExit("recvfrom");
-    printf("Response %d: %d", response.IO, response.period);
+    printf("Enter an GPIO (17,27): "); //pin 11,13
+    scanf("%d", &data.IO);  
+    printf("Gpio = %d\n",data.IO);
 
-    remove(claddr.sun_path);            /* Remove client socket pathname */
+    printf("Enter a period (in secondes): ");
+    scanf("%d", &data.period);  
+    printf("period = %ds\n",data.period);
+
+    for (j = 1; j < 2; j++) {
+        
+        printf("data %d: %d %d %p %p\n",data.IO,data.period,sizeof(data),&data,&(data.IO));
+        if (sendto(sfd, &data, sizeof(data), 0, (struct sockaddr *) &svaddr,
+                sizeof(struct sockaddr_un)) != sizeof(data))
+            fatal("sendto");
+        
+        t_data response;
+        numBytes = recvfrom(sfd, &response, sizeof(response), 0, NULL, NULL);
+        /* Or equivalently: numBytes = recv(sfd, resp, BUF_SIZE, 0);
+                        or: numBytes = read(sfd, resp, BUF_SIZE); */
+        if (numBytes == -1)
+            errExit("recvfrom");
+        printf("Response %d: %d\n", response.IO,response.period);
+    }
     exit(EXIT_SUCCESS);
 }

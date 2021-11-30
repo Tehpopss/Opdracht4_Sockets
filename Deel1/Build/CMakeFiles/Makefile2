@@ -53,8 +53,9 @@ CMAKE_BINARY_DIR = /home/pi/Embedded2/Theorie/Labo/Opdracht4_Sockets/Deel1/Build
 # Directory level rules for the build root directory
 
 # The main recursive "all" target.
-all: CMakeFiles/Client.dir/all
 all: CMakeFiles/Server.dir/all
+all: CMakeFiles/Client.dir/all
+all: CMakeFiles/PJ_RPI.dir/all
 
 .PHONY : all
 
@@ -64,10 +65,38 @@ preinstall:
 .PHONY : preinstall
 
 # The main recursive "clean" target.
-clean: CMakeFiles/Client.dir/clean
 clean: CMakeFiles/Server.dir/clean
+clean: CMakeFiles/Client.dir/clean
+clean: CMakeFiles/PJ_RPI.dir/clean
 
 .PHONY : clean
+
+#=============================================================================
+# Target rules for target CMakeFiles/Server.dir
+
+# All Build rule for target.
+CMakeFiles/Server.dir/all:
+	$(MAKE) -f CMakeFiles/Server.dir/build.make CMakeFiles/Server.dir/depend
+	$(MAKE) -f CMakeFiles/Server.dir/build.make CMakeFiles/Server.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/pi/Embedded2/Theorie/Labo/Opdracht4_Sockets/Deel1/Build/CMakeFiles --progress-num=5,6 "Built target Server"
+.PHONY : CMakeFiles/Server.dir/all
+
+# Build rule for subdir invocation for target.
+CMakeFiles/Server.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/pi/Embedded2/Theorie/Labo/Opdracht4_Sockets/Deel1/Build/CMakeFiles 2
+	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/Server.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/pi/Embedded2/Theorie/Labo/Opdracht4_Sockets/Deel1/Build/CMakeFiles 0
+.PHONY : CMakeFiles/Server.dir/rule
+
+# Convenience name for target.
+Server: CMakeFiles/Server.dir/rule
+
+.PHONY : Server
+
+# clean rule for target.
+CMakeFiles/Server.dir/clean:
+	$(MAKE) -f CMakeFiles/Server.dir/build.make CMakeFiles/Server.dir/clean
+.PHONY : CMakeFiles/Server.dir/clean
 
 #=============================================================================
 # Target rules for target CMakeFiles/Client.dir
@@ -97,31 +126,31 @@ CMakeFiles/Client.dir/clean:
 .PHONY : CMakeFiles/Client.dir/clean
 
 #=============================================================================
-# Target rules for target CMakeFiles/Server.dir
+# Target rules for target CMakeFiles/PJ_RPI.dir
 
 # All Build rule for target.
-CMakeFiles/Server.dir/all:
-	$(MAKE) -f CMakeFiles/Server.dir/build.make CMakeFiles/Server.dir/depend
-	$(MAKE) -f CMakeFiles/Server.dir/build.make CMakeFiles/Server.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/pi/Embedded2/Theorie/Labo/Opdracht4_Sockets/Deel1/Build/CMakeFiles --progress-num=3,4 "Built target Server"
-.PHONY : CMakeFiles/Server.dir/all
+CMakeFiles/PJ_RPI.dir/all:
+	$(MAKE) -f CMakeFiles/PJ_RPI.dir/build.make CMakeFiles/PJ_RPI.dir/depend
+	$(MAKE) -f CMakeFiles/PJ_RPI.dir/build.make CMakeFiles/PJ_RPI.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/pi/Embedded2/Theorie/Labo/Opdracht4_Sockets/Deel1/Build/CMakeFiles --progress-num=3,4 "Built target PJ_RPI"
+.PHONY : CMakeFiles/PJ_RPI.dir/all
 
 # Build rule for subdir invocation for target.
-CMakeFiles/Server.dir/rule: cmake_check_build_system
+CMakeFiles/PJ_RPI.dir/rule: cmake_check_build_system
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/pi/Embedded2/Theorie/Labo/Opdracht4_Sockets/Deel1/Build/CMakeFiles 2
-	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/Server.dir/all
+	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/PJ_RPI.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/pi/Embedded2/Theorie/Labo/Opdracht4_Sockets/Deel1/Build/CMakeFiles 0
-.PHONY : CMakeFiles/Server.dir/rule
+.PHONY : CMakeFiles/PJ_RPI.dir/rule
 
 # Convenience name for target.
-Server: CMakeFiles/Server.dir/rule
+PJ_RPI: CMakeFiles/PJ_RPI.dir/rule
 
-.PHONY : Server
+.PHONY : PJ_RPI
 
 # clean rule for target.
-CMakeFiles/Server.dir/clean:
-	$(MAKE) -f CMakeFiles/Server.dir/build.make CMakeFiles/Server.dir/clean
-.PHONY : CMakeFiles/Server.dir/clean
+CMakeFiles/PJ_RPI.dir/clean:
+	$(MAKE) -f CMakeFiles/PJ_RPI.dir/build.make CMakeFiles/PJ_RPI.dir/clean
+.PHONY : CMakeFiles/PJ_RPI.dir/clean
 
 #=============================================================================
 # Special targets to cleanup operation of make.

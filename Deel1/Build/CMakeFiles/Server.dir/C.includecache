@@ -6,6 +6,30 @@
 
 #IncludeRegexTransform: 
 
+/home/pi/Embedded2/Theorie/Labo/Opdracht4_Sockets/Deel1/PJ_RPI.h
+stdio.h
+-
+string.h
+-
+stdlib.h
+-
+dirent.h
+-
+fcntl.h
+-
+assert.h
+-
+sched.h
+-
+sys/mman.h
+-
+sys/types.h
+-
+sys/stat.h
+-
+unistd.h
+-
+
 /home/pi/Embedded2/Theorie/Labo/Opdracht4_Sockets/Deel1/ud_ucase.h
 sys/un.h
 -
@@ -19,4 +43,10 @@ tlpi_hdr.h
 /home/pi/Embedded2/Theorie/Labo/Opdracht4_Sockets/Deel1/ud_ucase_sv.c
 ud_ucase.h
 /home/pi/Embedded2/Theorie/Labo/Opdracht4_Sockets/Deel1/ud_ucase.h
+PJ_RPI.h
+/home/pi/Embedded2/Theorie/Labo/Opdracht4_Sockets/Deel1/PJ_RPI.h
+stdio.h
+-
+string.h
+-
 

@@ -1,0 +1,2 @@
+/usr/bin/ar qc libPJ_RPI.a  CMakeFiles/PJ_RPI.dir/ud_ucase_cl.c.o
+/usr/bin/ranlib libPJ_RPI.a

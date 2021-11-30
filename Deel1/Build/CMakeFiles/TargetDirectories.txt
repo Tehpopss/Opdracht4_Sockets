@@ -1,4 +1,9 @@
-/home/pi/Embedded2/Theorie/Labo/Opdracht4_Sockets/Deel1/Build/CMakeFiles/rebuild_cache.dir
-/home/pi/Embedded2/Theorie/Labo/Opdracht4_Sockets/Deel1/Build/CMakeFiles/edit_cache.dir
-/home/pi/Embedded2/Theorie/Labo/Opdracht4_Sockets/Deel1/Build/CMakeFiles/Client.dir
+/home/pi/Embedded2/Theorie/Labo/Opdracht4_Sockets/Deel1/Build/CMakeFiles/install/strip.dir
+/home/pi/Embedded2/Theorie/Labo/Opdracht4_Sockets/Deel1/Build/CMakeFiles/install/local.dir
+/home/pi/Embedded2/Theorie/Labo/Opdracht4_Sockets/Deel1/Build/CMakeFiles/install.dir
 /home/pi/Embedded2/Theorie/Labo/Opdracht4_Sockets/Deel1/Build/CMakeFiles/Server.dir
+/home/pi/Embedded2/Theorie/Labo/Opdracht4_Sockets/Deel1/Build/CMakeFiles/Client.dir
+/home/pi/Embedded2/Theorie/Labo/Opdracht4_Sockets/Deel1/Build/CMakeFiles/PJ_RPI.dir
+/home/pi/Embedded2/Theorie/Labo/Opdracht4_Sockets/Deel1/Build/CMakeFiles/edit_cache.dir
+/home/pi/Embedded2/Theorie/Labo/Opdracht4_Sockets/Deel1/Build/CMakeFiles/rebuild_cache.dir
+/home/pi/Embedded2/Theorie/Labo/Opdracht4_Sockets/Deel1/Build/CMakeFiles/list_install_components.dir

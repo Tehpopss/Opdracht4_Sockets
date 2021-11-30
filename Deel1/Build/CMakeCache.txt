@@ -215,6 +215,9 @@ ClientServerUDP_BINARY_DIR:STATIC=/home/pi/Embedded2/Theorie/Labo/Opdracht4_Sock
 //Value Computed by CMake
 ClientServerUDP_SOURCE_DIR:STATIC=/home/pi/Embedded2/Theorie/Labo/Opdracht4_Sockets/Deel1
 
+//Dependencies for the target
+PJ_RPI.c_LIB_DEPENDS:STATIC=general;libtlpi.a;
+
 
 ########################
 # INTERNAL cache entries

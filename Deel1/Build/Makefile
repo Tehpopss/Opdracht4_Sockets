@@ -56,16 +56,41 @@ CMAKE_BINARY_DIR = /home/pi/Embedded2/Theorie/Labo/Opdracht4_Sockets/Deel1/Build
 #=============================================================================
 # Targets provided globally by CMake.
 
-# Special rule for the target rebuild_cache
-rebuild_cache:
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running CMake to regenerate build system..."
-	/usr/bin/cmake -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
-.PHONY : rebuild_cache
+# Special rule for the target install/strip
+install/strip: preinstall
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing the project stripped..."
+	/usr/bin/cmake -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake
+.PHONY : install/strip
 
-# Special rule for the target rebuild_cache
-rebuild_cache/fast: rebuild_cache
+# Special rule for the target install/strip
+install/strip/fast: preinstall/fast
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing the project stripped..."
+	/usr/bin/cmake -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake
+.PHONY : install/strip/fast
 
-.PHONY : rebuild_cache/fast
+# Special rule for the target install/local
+install/local: preinstall
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing only the local directory..."
+	/usr/bin/cmake -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake
+.PHONY : install/local
+
+# Special rule for the target install/local
+install/local/fast: preinstall/fast
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing only the local directory..."
+	/usr/bin/cmake -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake
+.PHONY : install/local/fast
+
+# Special rule for the target install
+install: preinstall
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Install the project..."
+	/usr/bin/cmake -P cmake_install.cmake
+.PHONY : install
+
+# Special rule for the target install
+install/fast: preinstall/fast
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Install the project..."
+	/usr/bin/cmake -P cmake_install.cmake
+.PHONY : install/fast
 
 # Special rule for the target edit_cache
 edit_cache:
@@ -77,6 +102,27 @@ edit_cache:
 edit_cache/fast: edit_cache
 
 .PHONY : edit_cache/fast
+
+# Special rule for the target rebuild_cache
+rebuild_cache:
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running CMake to regenerate build system..."
+	/usr/bin/cmake -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
+.PHONY : rebuild_cache
+
+# Special rule for the target rebuild_cache
+rebuild_cache/fast: rebuild_cache
+
+.PHONY : rebuild_cache/fast
+
+# Special rule for the target list_install_components
+list_install_components:
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Available install components are: \"Unspecified\""
+.PHONY : list_install_components
+
+# Special rule for the target list_install_components
+list_install_components/fast: list_install_components
+
+.PHONY : list_install_components/fast
 
 # The main all target
 all: cmake_check_build_system
@@ -111,6 +157,19 @@ depend:
 .PHONY : depend
 
 #=============================================================================
+# Target rules for targets named Server
+
+# Build rule for target.
+Server: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 Server
+.PHONY : Server
+
+# fast build rule for target.
+Server/fast:
+	$(MAKE) -f CMakeFiles/Server.dir/build.make CMakeFiles/Server.dir/build
+.PHONY : Server/fast
+
+#=============================================================================
 # Target rules for targets named Client
 
 # Build rule for target.
@@ -124,17 +183,17 @@ Client/fast:
 .PHONY : Client/fast
 
 #=============================================================================
-# Target rules for targets named Server
+# Target rules for targets named PJ_RPI
 
 # Build rule for target.
-Server: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 Server
-.PHONY : Server
+PJ_RPI: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 PJ_RPI
+.PHONY : PJ_RPI
 
 # fast build rule for target.
-Server/fast:
-	$(MAKE) -f CMakeFiles/Server.dir/build.make CMakeFiles/Server.dir/build
-.PHONY : Server/fast
+PJ_RPI/fast:
+	$(MAKE) -f CMakeFiles/PJ_RPI.dir/build.make CMakeFiles/PJ_RPI.dir/build
+.PHONY : PJ_RPI/fast
 
 ud_ucase_cl.o: ud_ucase_cl.c.o
 
@@ -143,6 +202,7 @@ ud_ucase_cl.o: ud_ucase_cl.c.o
 # target to build an object file
 ud_ucase_cl.c.o:
 	$(MAKE) -f CMakeFiles/Client.dir/build.make CMakeFiles/Client.dir/ud_ucase_cl.c.o
+	$(MAKE) -f CMakeFiles/PJ_RPI.dir/build.make CMakeFiles/PJ_RPI.dir/ud_ucase_cl.c.o
 .PHONY : ud_ucase_cl.c.o
 
 ud_ucase_cl.i: ud_ucase_cl.c.i
@@ -152,6 +212,7 @@ ud_ucase_cl.i: ud_ucase_cl.c.i
 # target to preprocess a source file
 ud_ucase_cl.c.i:
 	$(MAKE) -f CMakeFiles/Client.dir/build.make CMakeFiles/Client.dir/ud_ucase_cl.c.i
+	$(MAKE) -f CMakeFiles/PJ_RPI.dir/build.make CMakeFiles/PJ_RPI.dir/ud_ucase_cl.c.i
 .PHONY : ud_ucase_cl.c.i
 
 ud_ucase_cl.s: ud_ucase_cl.c.s
@@ -161,6 +222,7 @@ ud_ucase_cl.s: ud_ucase_cl.c.s
 # target to generate assembly for a file
 ud_ucase_cl.c.s:
 	$(MAKE) -f CMakeFiles/Client.dir/build.make CMakeFiles/Client.dir/ud_ucase_cl.c.s
+	$(MAKE) -f CMakeFiles/PJ_RPI.dir/build.make CMakeFiles/PJ_RPI.dir/ud_ucase_cl.c.s
 .PHONY : ud_ucase_cl.c.s
 
 ud_ucase_sv.o: ud_ucase_sv.c.o
@@ -196,10 +258,15 @@ help:
 	@echo "... all (the default if no target is provided)"
 	@echo "... clean"
 	@echo "... depend"
-	@echo "... rebuild_cache"
-	@echo "... edit_cache"
-	@echo "... Client"
+	@echo "... install/strip"
+	@echo "... install/local"
+	@echo "... install"
 	@echo "... Server"
+	@echo "... Client"
+	@echo "... PJ_RPI"
+	@echo "... edit_cache"
+	@echo "... rebuild_cache"
+	@echo "... list_install_components"
 	@echo "... ud_ucase_cl.o"
 	@echo "... ud_ucase_cl.i"
 	@echo "... ud_ucase_cl.s"

@@ -1,0 +1,4 @@
+/home/pi/Embedded2/Theorie/Labo/Opdracht4_Sockets/Deel1/Build/CMakeFiles/rebuild_cache.dir
+/home/pi/Embedded2/Theorie/Labo/Opdracht4_Sockets/Deel1/Build/CMakeFiles/edit_cache.dir
+/home/pi/Embedded2/Theorie/Labo/Opdracht4_Sockets/Deel1/Build/CMakeFiles/Client.dir
+/home/pi/Embedded2/Theorie/Labo/Opdracht4_Sockets/Deel1/Build/CMakeFiles/Server.dir

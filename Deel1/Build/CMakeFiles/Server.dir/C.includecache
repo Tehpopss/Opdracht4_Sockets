@@ -1,0 +1,22 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/pi/Embedded2/Theorie/Labo/Opdracht4_Sockets/Deel1/ud_ucase.h
+sys/un.h
+-
+sys/socket.h
+-
+ctype.h
+-
+tlpi_hdr.h
+/home/pi/Embedded2/Theorie/Labo/Opdracht4_Sockets/Deel1/tlpi_hdr.h
+
+/home/pi/Embedded2/Theorie/Labo/Opdracht4_Sockets/Deel1/ud_ucase_sv.c
+ud_ucase.h
+/home/pi/Embedded2/Theorie/Labo/Opdracht4_Sockets/Deel1/ud_ucase.h
+

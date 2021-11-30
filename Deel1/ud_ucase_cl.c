@@ -58,11 +58,11 @@ main(int argc, char *argv[])
 
         t_data data;
 
-    printf("Enter an GPIO (17,27): "); //pin 11,13
+    printf("Enter an GPIO (17): "); //pin 11,13
     scanf("%d", &data.IO);  
     printf("Gpio = %d\n",data.IO);
 
-    printf("Enter a period (in secondes): ");
+    printf("Enter a period (in seconds): ");
     scanf("%d", &data.period);  
     printf("period = %ds\n",data.period);
 

@@ -123,32 +123,6 @@ Http/fast:
 	$(MAKE) -f CMakeFiles/Http.dir/build.make CMakeFiles/Http.dir/build
 .PHONY : Http/fast
 
-#=============================================================================
-# Target rules for targets named Client
-
-# Build rule for target.
-Client: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 Client
-.PHONY : Client
-
-# fast build rule for target.
-Client/fast:
-	$(MAKE) -f CMakeFiles/Client.dir/build.make CMakeFiles/Client.dir/build
-.PHONY : Client/fast
-
-#=============================================================================
-# Target rules for targets named Server
-
-# Build rule for target.
-Server: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 Server
-.PHONY : Server
-
-# fast build rule for target.
-Server/fast:
-	$(MAKE) -f CMakeFiles/Server.dir/build.make CMakeFiles/Server.dir/build
-.PHONY : Server/fast
-
 https_server.o: https_server.c.o
 
 .PHONY : https_server.o
@@ -176,60 +150,6 @@ https_server.c.s:
 	$(MAKE) -f CMakeFiles/Http.dir/build.make CMakeFiles/Http.dir/https_server.c.s
 .PHONY : https_server.c.s
 
-ud_ucase_cl.o: ud_ucase_cl.c.o
-
-.PHONY : ud_ucase_cl.o
-
-# target to build an object file
-ud_ucase_cl.c.o:
-	$(MAKE) -f CMakeFiles/Client.dir/build.make CMakeFiles/Client.dir/ud_ucase_cl.c.o
-.PHONY : ud_ucase_cl.c.o
-
-ud_ucase_cl.i: ud_ucase_cl.c.i
-
-.PHONY : ud_ucase_cl.i
-
-# target to preprocess a source file
-ud_ucase_cl.c.i:
-	$(MAKE) -f CMakeFiles/Client.dir/build.make CMakeFiles/Client.dir/ud_ucase_cl.c.i
-.PHONY : ud_ucase_cl.c.i
-
-ud_ucase_cl.s: ud_ucase_cl.c.s
-
-.PHONY : ud_ucase_cl.s
-
-# target to generate assembly for a file
-ud_ucase_cl.c.s:
-	$(MAKE) -f CMakeFiles/Client.dir/build.make CMakeFiles/Client.dir/ud_ucase_cl.c.s
-.PHONY : ud_ucase_cl.c.s
-
-ud_ucase_sv.o: ud_ucase_sv.c.o
-
-.PHONY : ud_ucase_sv.o
-
-# target to build an object file
-ud_ucase_sv.c.o:
-	$(MAKE) -f CMakeFiles/Server.dir/build.make CMakeFiles/Server.dir/ud_ucase_sv.c.o
-.PHONY : ud_ucase_sv.c.o
-
-ud_ucase_sv.i: ud_ucase_sv.c.i
-
-.PHONY : ud_ucase_sv.i
-
-# target to preprocess a source file
-ud_ucase_sv.c.i:
-	$(MAKE) -f CMakeFiles/Server.dir/build.make CMakeFiles/Server.dir/ud_ucase_sv.c.i
-.PHONY : ud_ucase_sv.c.i
-
-ud_ucase_sv.s: ud_ucase_sv.c.s
-
-.PHONY : ud_ucase_sv.s
-
-# target to generate assembly for a file
-ud_ucase_sv.c.s:
-	$(MAKE) -f CMakeFiles/Server.dir/build.make CMakeFiles/Server.dir/ud_ucase_sv.c.s
-.PHONY : ud_ucase_sv.c.s
-
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -237,19 +157,11 @@ help:
 	@echo "... clean"
 	@echo "... depend"
 	@echo "... rebuild_cache"
-	@echo "... edit_cache"
 	@echo "... Http"
-	@echo "... Client"
-	@echo "... Server"
+	@echo "... edit_cache"
 	@echo "... https_server.o"
 	@echo "... https_server.i"
 	@echo "... https_server.s"
-	@echo "... ud_ucase_cl.o"
-	@echo "... ud_ucase_cl.i"
-	@echo "... ud_ucase_cl.s"
-	@echo "... ud_ucase_sv.o"
-	@echo "... ud_ucase_sv.i"
-	@echo "... ud_ucase_sv.s"
 .PHONY : help
 
 

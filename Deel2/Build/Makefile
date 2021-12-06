@@ -56,16 +56,41 @@ CMAKE_BINARY_DIR = /home/pi/Embedded2/Theorie/Labo/Opdracht4_Sockets/Deel2/Build
 #=============================================================================
 # Targets provided globally by CMake.
 
-# Special rule for the target rebuild_cache
-rebuild_cache:
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running CMake to regenerate build system..."
-	/usr/bin/cmake -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
-.PHONY : rebuild_cache
+# Special rule for the target install/local
+install/local: preinstall
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing only the local directory..."
+	/usr/bin/cmake -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake
+.PHONY : install/local
 
-# Special rule for the target rebuild_cache
-rebuild_cache/fast: rebuild_cache
+# Special rule for the target install/local
+install/local/fast: preinstall/fast
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing only the local directory..."
+	/usr/bin/cmake -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake
+.PHONY : install/local/fast
 
-.PHONY : rebuild_cache/fast
+# Special rule for the target install/strip
+install/strip: preinstall
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing the project stripped..."
+	/usr/bin/cmake -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake
+.PHONY : install/strip
+
+# Special rule for the target install/strip
+install/strip/fast: preinstall/fast
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Installing the project stripped..."
+	/usr/bin/cmake -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake
+.PHONY : install/strip/fast
+
+# Special rule for the target install
+install: preinstall
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Install the project..."
+	/usr/bin/cmake -P cmake_install.cmake
+.PHONY : install
+
+# Special rule for the target install
+install/fast: preinstall/fast
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Install the project..."
+	/usr/bin/cmake -P cmake_install.cmake
+.PHONY : install/fast
 
 # Special rule for the target edit_cache
 edit_cache:
@@ -77,6 +102,27 @@ edit_cache:
 edit_cache/fast: edit_cache
 
 .PHONY : edit_cache/fast
+
+# Special rule for the target rebuild_cache
+rebuild_cache:
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running CMake to regenerate build system..."
+	/usr/bin/cmake -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
+.PHONY : rebuild_cache
+
+# Special rule for the target rebuild_cache
+rebuild_cache/fast: rebuild_cache
+
+.PHONY : rebuild_cache/fast
+
+# Special rule for the target list_install_components
+list_install_components:
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Available install components are: \"Unspecified\""
+.PHONY : list_install_components
+
+# Special rule for the target list_install_components
+list_install_components/fast: list_install_components
+
+.PHONY : list_install_components/fast
 
 # The main all target
 all: cmake_check_build_system
@@ -123,6 +169,46 @@ Http/fast:
 	$(MAKE) -f CMakeFiles/Http.dir/build.make CMakeFiles/Http.dir/build
 .PHONY : Http/fast
 
+#=============================================================================
+# Target rules for targets named PJ_RPI
+
+# Build rule for target.
+PJ_RPI: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 PJ_RPI
+.PHONY : PJ_RPI
+
+# fast build rule for target.
+PJ_RPI/fast:
+	$(MAKE) -f CMakeFiles/PJ_RPI.dir/build.make CMakeFiles/PJ_RPI.dir/build
+.PHONY : PJ_RPI/fast
+
+PJ_RPI.o: PJ_RPI.c.o
+
+.PHONY : PJ_RPI.o
+
+# target to build an object file
+PJ_RPI.c.o:
+	$(MAKE) -f CMakeFiles/PJ_RPI.dir/build.make CMakeFiles/PJ_RPI.dir/PJ_RPI.c.o
+.PHONY : PJ_RPI.c.o
+
+PJ_RPI.i: PJ_RPI.c.i
+
+.PHONY : PJ_RPI.i
+
+# target to preprocess a source file
+PJ_RPI.c.i:
+	$(MAKE) -f CMakeFiles/PJ_RPI.dir/build.make CMakeFiles/PJ_RPI.dir/PJ_RPI.c.i
+.PHONY : PJ_RPI.c.i
+
+PJ_RPI.s: PJ_RPI.c.s
+
+.PHONY : PJ_RPI.s
+
+# target to generate assembly for a file
+PJ_RPI.c.s:
+	$(MAKE) -f CMakeFiles/PJ_RPI.dir/build.make CMakeFiles/PJ_RPI.dir/PJ_RPI.c.s
+.PHONY : PJ_RPI.c.s
+
 https_server.o: https_server.c.o
 
 .PHONY : https_server.o
@@ -156,9 +242,17 @@ help:
 	@echo "... all (the default if no target is provided)"
 	@echo "... clean"
 	@echo "... depend"
-	@echo "... rebuild_cache"
+	@echo "... install/local"
+	@echo "... install/strip"
 	@echo "... Http"
+	@echo "... install"
+	@echo "... PJ_RPI"
 	@echo "... edit_cache"
+	@echo "... rebuild_cache"
+	@echo "... list_install_components"
+	@echo "... PJ_RPI.o"
+	@echo "... PJ_RPI.i"
+	@echo "... PJ_RPI.s"
 	@echo "... https_server.o"
 	@echo "... https_server.i"
 	@echo "... https_server.s"

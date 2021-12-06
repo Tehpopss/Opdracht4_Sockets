@@ -79,6 +79,7 @@ Http_EXTERNAL_OBJECTS =
 
 Http: CMakeFiles/Http.dir/https_server.c.o
 Http: CMakeFiles/Http.dir/build.make
+Http: libPJ_RPI.a
 Http: CMakeFiles/Http.dir/link.txt
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/pi/Embedded2/Theorie/Labo/Opdracht4_Sockets/Deel2/Build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Linking C executable Http"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/Http.dir/link.txt --verbose=$(VERBOSE)

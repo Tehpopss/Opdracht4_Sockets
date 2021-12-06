@@ -1,0 +1,11 @@
+cmake_minimum_required(VERSION 2.8 FATAL_ERROR)
+project(Opdracht4)
+
+link_libraries(libtlpi.a)
+link_libraries(PJ_RPI)
+
+add_executable(Client ud_ucase_cl.c)
+add_executable(Server ud_ucase_sv.c)
+add_executable(Http https_server.c)
+
+

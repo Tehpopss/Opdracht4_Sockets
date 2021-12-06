@@ -20,7 +20,7 @@ void report(struct sockaddr_in *serverAddress);
 void setHttpHeader(char httpHeader[])
 {
     // File object to return
-    FILE *htmlData = fopen("index.html", "r");
+    FILE *htmlData = fopen("../index.html", "r");
 
     char line[100];
     char responseData[8000];
